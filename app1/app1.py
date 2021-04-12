@@ -5,9 +5,7 @@ data = json.load(open('data.json'))
 
 def translate(word):
     word = word.lower()
-   # print(word)
     result = get_close_matches(word,data.keys(),cutoff=0.8)
-    #print(result)
     if word.lower() in data:
         return data[word]
     elif word.title() in data:
@@ -20,7 +18,6 @@ def translate(word):
     
     elif len(result)>0:
         reply = input("Did you mean %s instead " % result[0])
-       # print("Input Taken ")
         if reply == 'Y':
             print("Check done {}".format(reply))
             return data[result[0]]
